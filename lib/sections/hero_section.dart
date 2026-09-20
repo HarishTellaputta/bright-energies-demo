@@ -8,12 +8,14 @@ class HeroSection extends StatelessWidget {
   final GlobalKey sectionKey;
   final VoidCallback onContact;
   final VoidCallback onSolutions;
+  final VoidCallback onQuote;
 
   const HeroSection({
     super.key,
     required this.sectionKey,
     required this.onContact,
     required this.onSolutions,
+    required this.onQuote,
   });
 
   @override
@@ -42,9 +44,7 @@ class HeroSection extends StatelessWidget {
                     AppAssets.hero,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: AppColors.darkNavy,
-                      );
+                      return Container(color: AppColors.darkNavy);
                     },
                   ),
                 ),
@@ -64,12 +64,7 @@ class HeroSection extends StatelessWidget {
                           AppColors.darkNavy.withOpacity(0.62),
                           AppColors.darkNavy.withOpacity(0.30),
                         ],
-                        stops: const [
-                          0.0,
-                          0.38,
-                          0.70,
-                          1.0,
-                        ],
+                        stops: const [0.0, 0.38, 0.70, 1.0],
                       ),
                     ),
                   ),
@@ -144,8 +139,7 @@ class HeroSection extends StatelessWidget {
                                   color: AppColors.yellow.withOpacity(0.12),
                                   borderRadius: BorderRadius.circular(30),
                                   border: Border.all(
-                                    color:
-                                        AppColors.yellow.withOpacity(0.42),
+                                    color: AppColors.yellow.withOpacity(0.42),
                                   ),
                                 ),
                                 child: const Row(
@@ -187,8 +181,9 @@ class HeroSection extends StatelessWidget {
                                         color: AppColors.yellow,
                                         shadows: [
                                           Shadow(
-                                            color: AppColors.yellow
-                                                .withOpacity(0.18),
+                                            color: AppColors.yellow.withOpacity(
+                                              0.18,
+                                            ),
                                             blurRadius: 18,
                                           ),
                                         ],
@@ -236,27 +231,27 @@ class HeroSection extends StatelessWidget {
                                 runSpacing: 12,
                                 children: [
                                   ElevatedButton(
-                                    onPressed: onContact,
+                                    onPressed: onQuote,
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColors.yellow,
                                       foregroundColor: AppColors.navy,
                                       elevation: 8,
-                                      shadowColor:
-                                          AppColors.yellow.withOpacity(0.25),
+                                      shadowColor: AppColors.yellow.withOpacity(
+                                        0.25,
+                                      ),
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 24,
                                         vertical: 17,
                                       ),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(13),
+                                        borderRadius: BorderRadius.circular(13),
                                       ),
                                     ),
                                     child: const Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          'Get Free Consultation',
+                                          'Get Free Quote',
                                           style: TextStyle(
                                             fontWeight: FontWeight.w900,
                                             fontSize: 14,
@@ -284,8 +279,7 @@ class HeroSection extends StatelessWidget {
                                         vertical: 17,
                                       ),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(13),
+                                        borderRadius: BorderRadius.circular(13),
                                       ),
                                     ),
                                     child: const Row(
@@ -329,8 +323,7 @@ class HeroSection extends StatelessWidget {
                                     child: Text(
                                       'Residential • Commercial • Industrial',
                                       style: TextStyle(
-                                        color:
-                                            Colors.white.withOpacity(0.55),
+                                        color: Colors.white.withOpacity(0.55),
                                         fontSize: 11,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 0.4,
@@ -421,24 +414,16 @@ class _Metric extends StatelessWidget {
   final String value;
   final String label;
 
-  const _Metric({
-    required this.value,
-    required this.label,
-  });
+  const _Metric({required this.value, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 17,
-        vertical: 12,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 12),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.075),
         borderRadius: BorderRadius.circular(13),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.12),
-        ),
+        border: Border.all(color: Colors.white.withOpacity(0.12)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

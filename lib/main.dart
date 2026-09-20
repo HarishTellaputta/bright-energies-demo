@@ -19,6 +19,8 @@ import 'sections/calculator_section.dart';
 import 'sections/cta_section.dart';
 import 'sections/contact_section.dart';
 import 'sections/footer_section.dart';
+import 'pages/quotation_page.dart';
+import 'admin/admin_page.dart';
 
 void main() {
   runApp(const BrightEnergiesApp());
@@ -73,6 +75,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void openQuotationPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const QuotationPage()),
+    );
+  }
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -92,6 +101,13 @@ class _HomePageState extends State<HomePage> {
           onProjects: () => scrollTo(projectsKey),
           onAbout: () => scrollTo(aboutKey),
           onContact: () => scrollTo(contactKey),
+
+          onAdmin: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AdminPage()),
+            );
+          },
         ),
       ),
 
@@ -106,6 +122,7 @@ class _HomePageState extends State<HomePage> {
                 sectionKey: homeKey,
                 onContact: () => scrollTo(contactKey),
                 onSolutions: () => scrollTo(solutionsKey),
+                onQuote: openQuotationPage,
               ),
 
               const TrustBarSection(),

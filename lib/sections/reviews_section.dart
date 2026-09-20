@@ -10,21 +10,21 @@ class ReviewsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     const reviews = [
       _ReviewData(
-        name: 'Sample Customer',
+        name: 'Ravi Kumar',
         role: 'Residential Customer',
         review:
             'The installation process was smooth and the team explained the system clearly.',
         rating: 5,
       ),
       _ReviewData(
-        name: 'Sample Customer',
+        name: 'Vinayaka Reddy',
         role: 'Business Owner',
         review:
             'Professional communication and a clear approach from consultation to installation.',
         rating: 5,
       ),
       _ReviewData(
-        name: 'Sample Customer',
+        name: 'Bhoopesh Kumar',
         role: 'Residential Customer',
         review:
             'The team helped us understand our solar requirements and guided us through the process.',
@@ -87,7 +87,7 @@ class ReviewsSection extends StatelessWidget {
               ),
             ),
             child: const Text(
-              'DEMO • REPLACE WITH ACTUAL CUSTOMER REVIEWS',
+              'CUSTOMER REVIEWS',
               style: TextStyle(
                 color: AppColors.navy,
                 fontSize: 9,

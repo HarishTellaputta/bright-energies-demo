@@ -1,7 +1,9 @@
+
 import 'package:flutter/material.dart';
 
 import '../core/app_colors.dart';
 import '../core/company_info.dart';
+import '../admin/admin_page.dart';
 
 class AppNavbar extends StatelessWidget {
   final VoidCallback onHome;
@@ -9,6 +11,7 @@ class AppNavbar extends StatelessWidget {
   final VoidCallback onProjects;
   final VoidCallback onAbout;
   final VoidCallback onContact;
+  final VoidCallback onAdmin;
 
   const AppNavbar({
     super.key,
@@ -17,6 +20,7 @@ class AppNavbar extends StatelessWidget {
     required this.onProjects,
     required this.onAbout,
     required this.onContact,
+    required this.onAdmin,
   });
 
   void _showMobileMenu(BuildContext context) {
@@ -44,35 +48,50 @@ class AppNavbar extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 25),
+
                 _mobileItem(
                   context,
                   Icons.home_outlined,
                   'Home',
                   onHome,
                 ),
+
                 _mobileItem(
                   context,
                   Icons.bolt_outlined,
                   'Solutions',
                   onSolutions,
                 ),
+
                 _mobileItem(
                   context,
                   Icons.solar_power_outlined,
                   'Projects',
                   onProjects,
                 ),
+
                 _mobileItem(
                   context,
                   Icons.business_outlined,
                   'About Us',
                   onAbout,
                 ),
+
                 _mobileItem(
                   context,
                   Icons.phone_outlined,
                   'Contact',
                   onContact,
+                ),
+
+                // =========================================================
+                // ADMIN
+                // =========================================================
+                _mobileItem(
+                  context,
+                  Icons.admin_panel_settings_outlined,
+                  'Admin',
+                  onAdmin,
                 ),
               ],
             ),
@@ -158,7 +177,9 @@ class AppNavbar extends StatelessWidget {
             ),
             child: Row(
               children: [
+                // =========================================================
                 // LOGO
+                // =========================================================
                 InkWell(
                   onTap: onHome,
                   borderRadius: BorderRadius.circular(12),
@@ -224,6 +245,9 @@ class AppNavbar extends StatelessWidget {
 
                 const Spacer(),
 
+                // =========================================================
+                // DESKTOP NAVIGATION
+                // =========================================================
                 if (!isMobile) ...[
                   _navItem('Home', onHome),
                   _navItem('Solutions', onSolutions),
@@ -233,14 +257,17 @@ class AppNavbar extends StatelessWidget {
 
                   const SizedBox(width: 18),
 
+                  // =======================================================
+                  // ADMIN BUTTON
+                  // =======================================================
                   ElevatedButton.icon(
-                    onPressed: onContact,
+                    onPressed: onAdmin,
                     icon: const Icon(
-                      Icons.arrow_forward_rounded,
+                      Icons.admin_panel_settings_outlined,
                       size: 17,
                     ),
                     label: const Text(
-                      'Get Free Quote',
+                      'Admin',
                       style: TextStyle(
                         fontWeight: FontWeight.w800,
                         fontSize: 13,
@@ -276,3 +303,4 @@ class AppNavbar extends StatelessWidget {
     );
   }
 }
+
